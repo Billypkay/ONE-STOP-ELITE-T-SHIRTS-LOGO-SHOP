@@ -3,174 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elite Logo Designer - Your one-stop logo shop.">
-    <title>Elite Logo Designer | Your One-Stop Logo Shop</title>
+    <title>SocialAI - Smart Social Media Automation</title>
+    <link rel="website icon" type="image" href="image/webp">
     <style>
-        /* Basic styles for the website */
-        body {
-            font-family: Arial, sans-serif;
+                * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        header {
-            background-color: #333;
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
-            padding: 20px;
+            padding: 120px 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 5px;
-            font-size: 1.2em;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-        .gallery-item {
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-        .gallery-item img {
-            max-width: 100%;
-            height: auto;
-        }
-        .gallery-item h3 {
-            margin-bottom: 5px;
-        }
-        .gallery-item p {
-            margin: 10px 0;
-            font-weight: bold;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        /* Shopping Cart Styles */
-        .cart-section {
-            padding: 20px;
-            text-align: center;
-        }
-        .cart-section h2 {
+
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
         }
-        #cart-items {
-            list-style: none;
-            padding: 0;
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
-        #cart-items li {
-            padding: 10px;
-            margin-bottom: 5px;
-            background-color: #ddd;
+
+        /* Sections Common Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        /* Why Choose Us */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h3 {
+            margin: 20px 0;
+            color: #6366f1;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #6366f1;
+            margin: 20px 0;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .pricing-card li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: #6366f1;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: white;
+            color: #6366f1;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <h1>Elite Logo Designer</h1>
-        <p>Your One-Stop Logo Shop</p>
-    </header>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <!-- Gallery Item -->
-        <div class="gallery-item">
-            <img src="logo1.png" alt="Logo 1">
-            <h3>Logo 1</h3>
-            <p>$50.00</p>
-            <button onclick="addToCart('Logo 1', 50)">Select</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Social Media with AI</h1>
+            <p>Automate posts, analyze performance, and grow your audience 24/7</p>
+            <button class="btn btn-primary" onclick="openWhatsApp()">Get Started</button>
         </div>
-        <div class="gallery-item">
-            <img src="logo2.png" alt="Logo 2">
-            <h3>Logo 2</h3>
-            <p>$75.00</p>
-            <button onclick="addToCart('Logo 2', 75)">Select</button>
+    </section>
+    <br>
+    <b><h4>Welcome to the Future of Business Efficiency with AI Automation</b></h4>
+    <p>
+      In today’s fast-paced world, staying ahead of the competition means embracing innovation. we specialize in AI-powered automation solutions designed to streamline your operations, boost productivity, and drive growth. Whether you're looking to optimize workflows, enhance customer experiences, or unlock new opportunities, our cutting-edge AI technology is here to transform the way you do business.
+
+<i><h1>Why Choose AI Automation?</h1></i>
+<b>⏲️Save Time & Resources:</b><br> Automate repetitive tasks and free up your team to focus on what truly matters.<br>
+<b>🎯Increase Accuracyv</b><br>Reduce human error with intelligent systems that learn and adapt.<br>
+<b>💡Scale Smarter:</b><br> Handle growing demands effortlessly with scalable AI solutions.<br>
+ <b>📊Data-Driven Decisions:</b><br>Gain actionable insights from your data to make smarter, faster decisions.
+
+<h3>Our Solutions</h3>
+1. ⚙️Process Automation: Automate routine tasks like data entry, scheduling, and reporting.<br>
+2. 📧Customer Support AI: Deploy chatbots and virtual assistants to provide 24/7 customer service.<br>
+3. 📊Predictive Analytics: Leverage AI to forecast trends, identify opportunities, and mitigate risks.<br>
+4. 💡Smart Workflows: Build intelligent workflows that adapt to your business needs in real time.<br>
+
+<h2>Industries We Serve</h2>
+
+From healthcare and finance to retail and manufacturing, our AI automation solutions are tailored to meet the unique challenges of your industry. No matter the size of your business, we’re here to help you thrive in the age of automation.
+
+<h1>Ready to Transform Your Business</h1>
+<br>
+Discover how AI automation can revolutionize your operations. Let’s build a smarter, more efficient future together.
+
+<h1>Get Started Today</h1> Schedule a free consultation with our experts and see how AI can work for you.
+</p>
+<script>
+  function openWhatsApp() {
+            const phoneNumber = '+254798830582'; // Replace with your number
+            const message = 'Hi! I want to learn more about SocialAI services';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        </script>
+
+    <!-- Why Choose Us -->
+    <section>
+        <div class="container">
+            <h2>Why Choose SocialAI?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🤖 Smart Automation</h3>
+                    <p>AI-powered scheduling and content optimization</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📈 Performance Analytics</h3>
+                    <p>Real-time insights and improvement recommendations</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💬 24/7 Support</h3>
+                    <p>Dedicated account manager and priority support</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🚀 Personalized Campaigns</h3>
+                    <p>Deliver hyper-targeted ads and content tailored to individual preferences</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📊 Data-Driven Insights</h3>
+                    <p>Analyze customer behavior to optimize campaigns in real time</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🤖 Chatbots & Virtual Assistants</h3>
+                    <p>Engage customers 24/7, answer queries, and drive conversions</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-    <img src="logo3.png" alt="Logo 3">
-    <h3>Logo 3</h3>
-    <p>$60.00</p>
-    <button onclick="addToCart('Logo 3', 60)">Select</button>
-</div>
     </section>
 
-    <!-- Shopping Cart Section -->
-    <section class="cart-section">
-        <h2>Your Cart</h2>
-        <ul id="cart-items"></ul>
-        <p><strong>Total Items:</strong> <span id="cart-count">0</span></p>
-        <p><strong>Total Price:</strong> $<span id="cart-total">0.00</span></p>
-
-        <!-- PayPal button container -->
-        <div id="paypal-button-container"></div>
+    <!-- Pricing -->
+    <section style="background: #f8fafc;">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$99/mo</div>
+                    <ul>
+                        <li>✓ 5 Social Accounts</li>
+                        <li>✓ Basic Analytics</li>
+                        <li>✓ 100 Scheduled Posts</li>
+                    </ul>
+                    <button class="btn" onclick="openCalendly()">Choose Plan</button>
+                </div>
+                <div class="pricing-card" style="border: 2px solid #6366f1;">
+                    <h3>Pro</h3>
+                    <div class="price">$199/mo</div>
+                    <ul>
+                        <li>✓ 10 Social Accounts</li>
+                        <li>✓ Advanced Analytics</li>
+                        <li>✓ Unlimited Posts</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openCalendly()">Popular Choice</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li>✓ Unlimited Accounts</li>
+                        <li>✓ Custom Reports</li>
+                        <li>✓ Dedicated Team</li>
+                        <li>✓ API Access</li>
+                    </ul>
+                    <button class="btn" onclick="openCalendly()">Contact Sales</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 Elite Logo Designer. All rights reserved.</p>
-    </footer>
+    <!-- Testimonials -->
+    <section>
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"SocialAI increased our engagement by 300% in just 2 months!"</p>
+                    <h4>- Sarah Johnson, Marketing Director</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The AI recommendations helped us optimize our content strategy."</p>
+                    <h4>- Mike Chen, Startup Founder</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"AI automation saved us hours of manual work and improved accuracy."</p>
+                    <h4>- Emily Davis, Operations Manager</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_SANDBOX_CLIENT_ID&currency=USD"></script>
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Automate Your Success?</h2>
+            <p>Start your free trial today or book a demo with our experts</p>
+            <button class="btn btn-primary" onclick="openCalendly()">Start Free Trial</button>
+        </div>
+    </section>
 
-    <!-- JavaScript to handle the cart and PayPal -->
     <script>
-        let cart = [];
-        let cartCount = 0;
-        let cartTotal = 0;
-
-        // Function to add items to the cart
-        function addToCart(name, price) {
-            cart.push({ name: name, price: price });
-            cartCount++;
-            cartTotal += price;
-
-            // Update cart display
-            const cartItems = document.getElementById('cart-items');
-            const cartCountElem = document.getElementById('cart-count');
-            const cartTotalElem = document.getElementById('cart-total');
-
-            const itemElem = document.createElement('li');
-            itemElem.textContent = `${name} - $${price.toFixed(2)}`;
-            cartItems.appendChild(itemElem);
-
-            cartCountElem.textContent = cartCount;
-            cartTotalElem.textContent = cartTotal.toFixed(2);
+        // Unified contact function
+        function openCalendly() {
+            window.open('https://calendly.com/pm5268255/30min', '_blank');
         }
 
-        // PayPal Buttons setup
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: cartTotal.toFixed(2)
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                    // You can redirect the user or show a confirmation page
-                });
-            }
-        }).render('#paypal-button-container');
-    </script>
+        function openWhatsApp() {
+            const phoneNumber = '+254798830582'; // Replace with your number
+            const message = 'Hi! I want to learn more about SocialAI services';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
 
+        // Smooth scroll for navigation (can add if needed)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animation
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.benefit-card, .pricing-card, .testimonial-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if(cardTop < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
